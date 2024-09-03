@@ -12,18 +12,27 @@
 
 import SwiftUI
 
+extension Color {
+   static func random() -> Color {
+      return Color(red: .random(in: 0...1),
+                   green: .random(in: 0...1),
+                   blue: .random(in: 0...1)
+      )
+   }
+}
+
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+   var body: some View {
+      VStack {
+         Image(systemName: "globe")
+            .imageScale(.large)
+            .foregroundStyle(.tint)
+         Text("Hello, world!")
+      }
+      .padding()
+   }
 }
 
 #Preview {
-    ContentView()
+   ContentView()
 }

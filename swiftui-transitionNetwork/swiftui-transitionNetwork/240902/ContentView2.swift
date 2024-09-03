@@ -7,9 +7,6 @@
 
 import SwiftUI
 
-// animation
-// 앱 이름, 한 줄 소개
-
 struct CardViewModel: Hashable, Identifiable {
    let id: UUID = UUID()
    let color: Color = .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1))
