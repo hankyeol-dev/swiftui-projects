@@ -16,6 +16,11 @@
 		812445D42C8698D8001951BB /* NetworkView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812445D32C8698D8001951BB /* NetworkView1.swift */; };
 		812445D62C86A832001951BB /* NetworkView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812445D52C86A832001951BB /* NetworkView2.swift */; };
 		812445D82C86AF15001951BB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812445D72C86AF15001951BB /* Network.swift */; };
+		814CE44D2C87E546006C9199 /* ObservableObject1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE44C2C87E546006C9199 /* ObservableObject1.swift */; };
+		814CE44F2C87E6AB006C9199 /* NavigationView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE44E2C87E6AB006C9199 /* NavigationView1.swift */; };
+		814CE4512C87EE80006C9199 /* NavigatingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */; };
+		814CE4542C8869F6006C9199 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4532C8869F6006C9199 /* RandomImage.swift */; };
+		814CE4562C8880DD006C9199 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4552C8880DD006C9199 /* CategoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 		812445D32C8698D8001951BB /* NetworkView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView1.swift; sourceTree = "<group>"; };
 		812445D52C86A832001951BB /* NetworkView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView2.swift; sourceTree = "<group>"; };
 		812445D72C86AF15001951BB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		814CE44C2C87E546006C9199 /* ObservableObject1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject1.swift; sourceTree = "<group>"; };
+		814CE44E2C87E6AB006C9199 /* NavigationView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView1.swift; sourceTree = "<group>"; };
+		814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatingWrapper.swift; sourceTree = "<group>"; };
+		814CE4532C8869F6006C9199 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
+		814CE4552C8880DD006C9199 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +71,8 @@
 		8105FE342C85427E005A1267 /* swiftui-transitionNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				814CE4522C8869E1006C9199 /* 240904-assignment */,
+				814CE44B2C87E530006C9199 /* 240904 */,
 				812445D22C8698C2001951BB /* 240903 */,
 				8105FE432C8542B7005A1267 /* 240902 */,
 				8105FE352C85427E005A1267 /* swiftui_transitionNetworkApp.swift */,
@@ -96,6 +108,25 @@
 				812445D72C86AF15001951BB /* Network.swift */,
 			);
 			path = 240903;
+			sourceTree = "<group>";
+		};
+		814CE44B2C87E530006C9199 /* 240904 */ = {
+			isa = PBXGroup;
+			children = (
+				814CE44C2C87E546006C9199 /* ObservableObject1.swift */,
+				814CE44E2C87E6AB006C9199 /* NavigationView1.swift */,
+				814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */,
+			);
+			path = 240904;
+			sourceTree = "<group>";
+		};
+		814CE4522C8869E1006C9199 /* 240904-assignment */ = {
+			isa = PBXGroup;
+			children = (
+				814CE4532C8869F6006C9199 /* RandomImage.swift */,
+				814CE4552C8880DD006C9199 /* CategoryView.swift */,
+			);
+			path = "240904-assignment";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,11 +201,16 @@
 			files = (
 				8105FE452C85439A005A1267 /* ContentView1.swift in Sources */,
 				8105FE492C855532005A1267 /* ContentView2.swift in Sources */,
+				814CE4562C8880DD006C9199 /* CategoryView.swift in Sources */,
 				8105FE382C85427E005A1267 /* ContentView.swift in Sources */,
+				814CE4512C87EE80006C9199 /* NavigatingWrapper.swift in Sources */,
 				8105FE362C85427E005A1267 /* swiftui_transitionNetworkApp.swift in Sources */,
 				812445D62C86A832001951BB /* NetworkView2.swift in Sources */,
+				814CE44F2C87E6AB006C9199 /* NavigationView1.swift in Sources */,
+				814CE4542C8869F6006C9199 /* RandomImage.swift in Sources */,
 				812445D82C86AF15001951BB /* Network.swift in Sources */,
 				812445D42C8698D8001951BB /* NetworkView1.swift in Sources */,
+				814CE44D2C87E546006C9199 /* ObservableObject1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

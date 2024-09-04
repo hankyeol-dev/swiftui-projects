@@ -20,6 +20,7 @@ struct SpendModel: Hashable, Identifiable {
    let name: String
    let type: SpendType
    let amount: Int
+   var isSelected: Bool
    
    var amountFormat: String {
       return String(amount.formatted()) + "원"
@@ -27,18 +28,27 @@ struct SpendModel: Hashable, Identifiable {
 }
 
 struct NetworkView1: View {
-   @State private var spendList: [SpendModel] = (0...300).map { num in
-      return SpendModel(name: "\(num) 내역", type: SpendType.allCases.randomElement()!, amount: Int.random(in: 1000..<10000))
-   }
+   @State private var spendList: [SpendModel] = []
+   @State private var searchText: String = ""
    
    var body: some View {
       NavigationView {
          ScrollView {
             VStack {
-               SpendBannerView( 
-                  color: .random(),
-                  totalAmount: spendList.reduce(0, { cv, mv in cv + mv.amount })
-               )
+               ScrollView(.horizontal) {
+                  // iOS 17+ 에서 많이 달라짐 Scrollview
+                  HStack {
+                     ForEach(0..<3) { _ in
+                        SpendBannerView(
+                           color: .random(),
+                           totalAmount: spendList.reduce(0, { cv, mv in cv + mv.amount })
+                        )
+                        .containerRelativeFrame(.horizontal)
+                     }
+                  }.scrollTargetLayout()
+               }
+               .scrollIndicators(.hidden)
+               .scrollTargetBehavior(.viewAligned)
                
                Spacer()
                   .frame(height: 24)
@@ -46,11 +56,12 @@ struct NetworkView1: View {
                SpendList(spendList: $spendList)
             }
          }
+         .searchable(text: $searchText)
          .navigationTitle("My Money")
          .refreshable {
             let randomAmount = Int.random(in: 1000...10000)
             if let randomType = SpendType.allCases.randomElement() {
-               spendList.insert(.init(name: "새로운 아이템 추가", type: randomType, amount: randomAmount), at: 0)
+               spendList.insert(.init(name: "새로운 아이템 추가", type: randomType, amount: randomAmount, isSelected: false), at: 0)
             }
          }
       }
@@ -60,12 +71,23 @@ struct NetworkView1: View {
    }
 }
 
+fileprivate struct SpendDetailView: View {
+   @Binding fileprivate var item: SpendModel
+   
+   var body: some View {
+      SpendListCell(spendItem: $item)
+   }
+}
+
 struct SpendList: View {
    @Binding var spendList: [SpendModel]
    
    var body: some View {
       LazyVStack {
-         ForEach(spendList, id: \.id) { spend in
+         ForEach($spendList, id: \.id) { spend in
+            // id를 id 속성 값으로 하면 pop이 되지 않는데,
+            // self로 설정하면 Pop이 됨 => self의 다른 속성이 변화했기 때문 (isSelected)
+            // => identifier에는 변화되지 않을 값을 넣는게 좋을 듯
             SpendListCell(spendItem: spend)
          }
       }
@@ -73,25 +95,43 @@ struct SpendList: View {
 }
 
 struct SpendListCell: View {
-   let spendItem: SpendModel
+   @Binding var spendItem: SpendModel
    
    var body: some View {
-      HStack(alignment: .center) {
-         Spacer().frame(width: 16)
-         VStack(alignment: .leading, spacing: 4.0) {
-            Text(spendItem.name)
-               .font(.system(size: 16, weight: .semibold))
-            Text(spendItem.type.rawValue)
-               .font(.system(size: 13))
+      NavigationLink {
+         NavigatingViewWrapper (
+            SpendDetailView(item: $spendItem)
+         )
+      } label: {
+         HStack(alignment: .center) {
+            Spacer().frame(width: 16)
+            
+            VStack(alignment: .leading, spacing: 4.0) {
+               Text(spendItem.name)
+                  .font(.system(size: 16, weight: .semibold))
+               Text(spendItem.type.rawValue)
+                  .font(.system(size: 13))
+            }
+            
+            Spacer()
+            
+            Text(spendItem.amountFormat)
+               .font(.system(size: 20, weight: .semibold))
+            
+            Button {
+               spendItem.isSelected.toggle()
+            } label: {
+               Image(systemName: spendItem.isSelected ? "star.fill" : "star")
+                  .foregroundStyle(spendItem.isSelected ? .yellow : .gray)
+            }
+            
+            Spacer().frame(width: 16)
          }
-         
-         Spacer()
-         Text(spendItem.amountFormat)
-            .font(.system(size: 20, weight: .semibold))
-         Spacer().frame(width: 16)
+         .padding(.vertical, 8)
       }
-      .padding(.vertical, 8)
+      .buttonStyle(PlainButtonStyle())
    }
+   
 }
 
 struct SpendBannerView: View {

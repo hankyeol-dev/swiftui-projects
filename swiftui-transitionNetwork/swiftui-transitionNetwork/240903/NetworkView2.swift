@@ -9,22 +9,30 @@ import SwiftUI
 
 struct NetworkView2: View {
    @State private var marketList: Markets = []
+   @State private var searchText: String = ""
    
    var body: some View {
       NavigationView {
          ScrollView {
             VStack {
-               SpendBannerView(
-                  color: .random(), totalAmount: marketList.count
-               )
+               TextField("코인을 검색해보세요.", text: $searchText)
+                  .padding(.horizontal, 16)
+               Spacer().frame(height: 16)
+               Button {
+                  
+               } label: {
+                  Text("검색")
+                     .padding()
+                     .background(.black)
+                     .foregroundStyle(.white)
+                     .frame(width: 300)
+               }
                
-               Spacer()
-                  .frame(height: 24)
-               
+               Spacer().frame(height: 16)
                MarketList(marketList: $marketList)
             }
          }
-         .navigationTitle("My Money2")
+         .navigationTitle("Search Coin")
          .refreshable {
             marketList.shuffle()
          }
