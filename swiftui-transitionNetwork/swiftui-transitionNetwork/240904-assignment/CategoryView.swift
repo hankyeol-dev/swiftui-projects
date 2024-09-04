@@ -22,7 +22,7 @@ struct CategoryView: View {
          VStack {
             Spacer().frame(height: 24)
             List {
-               ForEach(categoryList, id: \.id) { category in
+               ForEach(searchedText.isEmpty ? categoryList : categoryList.filter { $0.category.contains(searchedText) }, id: \.id) { category in
                   NavigationLink {
                      NavigatingViewWrapper(CategoryDetailView(category: "\(category.category) (\(category.count))"))
                   } label: {
@@ -49,7 +49,7 @@ struct CategoryView: View {
    
    fileprivate func appendOrCountUpCategoryList() {
       
-      if let randomCategory = ["로맨스", "액션", "스릴러", "사극", "애니메이션"].randomElement() {
+      if let randomCategory = ["로맨스", "액션", "스릴러", "사극", "애니메이션", "가족", "SF"].randomElement() {
          
          let filteredList = categoryList.filter { $0.category == randomCategory }
          

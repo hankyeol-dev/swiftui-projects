@@ -9,30 +9,31 @@ import SwiftUI
 
 struct NetworkView2: View {
    @State private var marketList: Markets = []
+   @State private var searchedMarketList: Markets = []
    @State private var searchText: String = ""
    
    var body: some View {
       NavigationView {
          ScrollView {
             VStack {
-               TextField("코인을 검색해보세요.", text: $searchText)
-                  .padding(.horizontal, 16)
-               Spacer().frame(height: 16)
-               Button {
-                  
-               } label: {
-                  Text("검색")
-                     .padding()
-                     .background(.black)
-                     .foregroundStyle(.white)
-                     .frame(width: 300)
-               }
-               
-               Spacer().frame(height: 16)
-               MarketList(marketList: $marketList)
+               MarketList(marketList: $searchedMarketList)
             }
          }
          .navigationTitle("Search Coin")
+         .searchable(text: $searchText, prompt: "코인을 검색해보세요.")
+         .onSubmit(of: .search) {
+            if !searchText.isEmpty {
+               searchedMarketList = searchedMarketList.filter { $0.koreanName.contains(searchText) || $0.englishName.contains(searchText.lowercased()) }
+            } else {
+               searchedMarketList = marketList
+            }
+            
+         }
+         .onChange(of: searchText) {
+            if searchText.isEmpty {
+               searchedMarketList = marketList
+            }
+         }
          .refreshable {
             marketList.shuffle()
          }
@@ -43,6 +44,7 @@ struct NetworkView2: View {
          
          do {
             marketList = try await UpbitAPI.fetchAllMarket()
+            searchedMarketList = marketList
          } catch {
             print(error)
          }
