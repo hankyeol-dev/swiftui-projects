@@ -71,3 +71,14 @@ struct NftItemData: Hashable, Decodable {
       case floorPriceChangePercent = "floorPrice_in_usd_24h_percentage_change"
    }
 }
+
+struct SearchedCoinItem: Hashable, Decodable {
+   let id: String
+   let name: String
+   let symbol: String
+   let thumb: String
+}
+
+struct SearchedCoinItems: Hashable, Decodable {
+   let coins: [SearchedCoinItem]
+}

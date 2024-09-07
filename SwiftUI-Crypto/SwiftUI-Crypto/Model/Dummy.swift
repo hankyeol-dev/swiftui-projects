@@ -26,6 +26,40 @@ let dummyTrendings: TrendingOutputs = .init(
    ]
 )
 
+let dummySearchedCoins: SearchedCoinItems = .init(coins: [
+   .init(id: "ethereum", name: "Ethereum", symbol: "ETH", thumb: "https://assets.coingecko.com/coins/images/279/thumb/ethereum.png"),
+   .init(id: "ethereum-classic", name: "Ethereum Classic", symbol: "ETC", thumb: "https://assets.coingecko.com/coins/images/453/thumb/ethereum-classic-logo.png"),
+   .init(id: "sweth", name: "Swell Ethereum", symbol: "SWETH", thumb: "https://assets.coingecko.com/coins/images/30326/thumb/_lB7zEtS_400x400.jpg")
+])
+
+//{
+//      "id": "ethereum",
+//      "name": "Ethereum",
+//      "api_symbol": "ethereum",
+//      "symbol": "ETH",
+//      "market_cap_rank": 2,
+//      "thumb": "https://assets.coingecko.com/coins/images/279/thumb/ethereum.png",
+//      "large": "https://assets.coingecko.com/coins/images/279/large/ethereum.png"
+//    },
+//    {
+//      "id": "ethereum-classic",
+//      "name": "Ethereum Classic",
+//      "api_symbol": "ethereum-classic",
+//      "symbol": "ETC",
+//      "market_cap_rank": 27,
+//      "thumb": "https://assets.coingecko.com/coins/images/453/thumb/ethereum-classic-logo.png",
+//      "large": "https://assets.coingecko.com/coins/images/453/large/ethereum-classic-logo.png"
+//    },
+//    {
+//      "id": "sweth",
+//      "name": "Swell Ethereum",
+//      "api_symbol": "sweth",
+//      "symbol": "SWETH",
+//      "market_cap_rank": 142,
+//      "thumb": "https://assets.coingecko.com/coins/images/30326/thumb/_lB7zEtS_400x400.jpg",
+//      "large": "https://assets.coingecko.com/coins/images/30326/large/_lB7zEtS_400x400.jpg"
+//    }
+
 /**
  "coins": [
      {
