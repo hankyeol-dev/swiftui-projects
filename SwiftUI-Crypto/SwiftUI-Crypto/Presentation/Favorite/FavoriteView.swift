@@ -15,7 +15,7 @@ struct FavoriteView: View {
    var body: some View {
       NavigationStack {
          ScrollView(.vertical) {
-            let columns = Array(repeating: GridItem(spacing: 10), count: 3)
+            let columns = Array(repeating: GridItem(spacing: 10), count: 2)
             LazyVGrid(columns: columns, spacing: 10, content: {
                ForEach(colors, id:\.self) { color in
                   GeometryReader {

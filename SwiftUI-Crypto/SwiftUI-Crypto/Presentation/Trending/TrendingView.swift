@@ -8,44 +8,46 @@
 import SwiftUI
 
 struct TrendingView: View {
-   @State private var favorites: [CoinItem] = dummyTrendings.coins
+   @EnvironmentObject private var favoriteList: FavoriteObject
+   @State private var trendingItems: TrendingOutputs = dummyTrendings
    
    var body: some View {
-      NavigationStack {
+      NavigationView {
          ScrollView(.vertical) {
-            if !favorites.isEmpty, favorites.count >= 2 {
+            if !favoriteList.favoriteCoinList.isEmpty, favoriteList.favoriteCoinList.count >= 2 {
                VStack {
                   TrendingSectionTitleView(title: "My Favorite")
-                  FavoriteCryptoContentsView(coinItems: $favorites)
+                  FavoriteCryptoContentsView(coinItems: $favoriteList.favoriteCoinList)
                }
             }
             
             Spacer().frame(height: 24)
             
-            VStack {
+            LazyVStack {
                TrendingSectionTitleView(title: "Top 15 Coins")
-               TabView {
-                  ForEach(favorites, id: \.coin_id) { favorite in
-                     LazyVStack {
-                        TrendingTabCell(coinItem: favorite)
-                        TrendingTabCell(coinItem: favorite)
-                        TrendingTabCell(coinItem: favorite)
+               ScrollView(.horizontal) {
+                  LazyHStack {
+                     ForEach(0..<5) { num in
+                        let targetIndex = num * 3
+                        let sendItems = trendingItems.coinsToTrendingListViewItems[targetIndex...targetIndex + 2].map { $0 }
+                        
+                        TrendingList(startIndex: targetIndex + 1, isCoinList: true, listItems: sendItems)
                      }
                   }
                }
-               .tabViewStyle(.page(indexDisplayMode: .automatic))
-               .tabViewStyle(PageTabViewStyle())
             }
-            .frame(width: .infinity, height: 240)
             
             Spacer().frame(height: 24)
             
-            VStack {
+            LazyVStack {
                TrendingSectionTitleView(title: "Top 7 NFTs")
                ScrollView(.horizontal) {
                   LazyHStack {
-                     ForEach(0..<5) { _ in
-                        TrendingNftList()
+                     ForEach(0..<3) { num in
+                        let targetIndex = num * 3
+                        let sendItems = trendingItems.nftsToTrendingListViewItems[targetIndex == 6 ? 6...6 : targetIndex...targetIndex + 2].map { $0 }
+                        
+                        TrendingList(startIndex: targetIndex + 1, isCoinList: false, listItems: sendItems)
                      }
                   }
                }
@@ -56,9 +58,9 @@ struct TrendingView: View {
    }
 }
 
-
 struct TrendingSectionTitleView: View {
    fileprivate let title: String
+   
    var body: some View {
       HStack {
          Text(title)
@@ -75,11 +77,24 @@ struct FavoriteCryptoContentsView: View {
    var body: some View {
       ScrollView(.horizontal) {
          HStack(spacing: 16) {
-            ForEach(coinItems, id: \.coin_id) { item in
+            
+            ForEach(coinItems, id: \.id) { item in
                FavoriteCryptoContent(coinItem: item)
             }
+            
+            if coinItems.count == 3 {
+               Button {} label: {
+                  Text("좋아요 한 코인\n더보기")
+                     .frame(width: 200, height: 120)
+                     .padding(.horizontal, 20)
+                     .padding(.vertical, 16)
+                     .background(.graySm)
+                     .foregroundStyle(.black)
+                     .clipShape(.rect(cornerRadius: 12))
+               }
+            }
          }
-         .padding(.leading, 16)
+         .padding(.horizontal, 16)
       }
       .scrollIndicators(.hidden)
    }
@@ -128,58 +143,88 @@ struct FavoriteCryptoContent: View {
    }
 }
 
-struct TrendingTabCell: View {
-   fileprivate var coinItem: CoinItem
+struct TrendingList: View {
+   fileprivate let startIndex: Int
+   fileprivate let isCoinList: Bool
+   fileprivate let listItems: [TrendingListViewItem]
+   private let columns = Array(repeating: GridItem(spacing: 10), count: 1)
+   
+   var body: some View {
+      LazyVGrid(columns: columns, alignment: .leading) {
+         if isCoinList {
+            ForEach(0..<3) { num in
+               NavigationLink {
+                  
+               } label: {
+                  TrendingItemCell(rank: startIndex + num, item: listItems[num])
+                     .frame(width: 320)
+               }
+            }
+         } else {
+            if startIndex < 6 {
+               ForEach(0..<3) { num in
+                  TrendingItemCell(rank: startIndex + num, item: listItems[num])
+                     .frame(width: 320)
+               }
+            } else {
+               TrendingItemCell(rank: startIndex, item: listItems[0])
+                  .frame(width: 320)
+               Rectangle()
+                  .fill(.clear)
+                  .frame(width: 320, height: 80)
+               Rectangle()
+                  .fill(.clear)
+                  .frame(width: 320, height: 80)
+            }
+         }
+      }
+   }
+}
+
+struct TrendingItemCell: View {
+   fileprivate var rank: Int
+   fileprivate var item: TrendingListViewItem
    
    var body: some View {
       HStack(alignment: .center) {
-         Text("1")
-         AsyncImage(url: URL(string: coinItem.small)) { phase in
+         Text(String(rank))
+            .font(.system(size: 16, weight: .bold))
+            .foregroundStyle(.black)
+         AsyncImage(url: URL(string: item.image)) { phase in
             if let image = phase.image {
                image
                   .resizable()
-                  .frame(width: 36, height: 36)
+                  .frame(width: 32, height: 32)
                   .clipShape(Circle())
             }
             if phase.error != nil {
-               Color.graySm
+               RoundedRectangle(cornerRadius: 24)
+                  .fill(.graySm)
+                  .frame(width: 32, height: 32)
             }
          }
-         VStack(alignment: .leading, spacing: 4) {
-            Text(coinItem.name)
+         VStack(alignment: .leading) {
+            Text(item.name)
                .font(.system(size: 16, weight: .bold))
-            Text(coinItem.symbol)
+               .foregroundStyle(.black)
+            Text(item.symbol)
                .font(.system(size: 13))
                .foregroundStyle(.grayMd)
          }
          Spacer()
-         VStack(alignment: .leading, spacing: 4) {
-            Text(String(coinItem.data.roundedPrice.formatted(.currency(code: "usd"))))
+         VStack(alignment: .trailing, spacing: 4) {
+            Text(String(item.price))
                .font(.system(size: 16, weight: .bold))
-            Text(String(coinItem.data.roundedChangePercent) + "%")
+               .foregroundStyle(.black)
+            Text(String(item.priceChangePercent) + "%")
                .font(.system(size: 13))
-               .foregroundStyle(.grayMd)
+               .foregroundStyle(item.priceChangePercent >= 0 ? .red : .blue)
          }
       }
       .padding()
    }
 }
-
-struct TrendingNftList: View {
-   let columns = Array(repeating: GridItem(spacing: 10), count: 1)
-   
-   var body: some View {
-      LazyVGrid(columns: columns, spacing: 20) {
-            TrendingTabCell(coinItem: dummyTrendings.coins[0])
-               .frame(width: 320)
-            TrendingTabCell(coinItem: dummyTrendings.coins[0])
-               .frame(width: 320)
-            TrendingTabCell(coinItem: dummyTrendings.coins[0])
-               .frame(width: 320)
-      }
-   }
-}
-
 #Preview {
    TrendingView()
+      .environmentObject(FavoriteObject())
 }

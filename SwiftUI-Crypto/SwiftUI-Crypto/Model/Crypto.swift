@@ -7,9 +7,26 @@
 
 import Foundation
 
+struct TrendingListViewItem: Hashable {
+   let coin_id: String
+   let image: String
+   let name: String
+   let symbol: String
+   let price: Double
+   let priceChangePercent: Double
+}
+
 struct TrendingOutputs {
    let coins: [CoinItem]
    let nfts: [NftItem]
+   
+   var coinsToTrendingListViewItems: [TrendingListViewItem] {
+      return coins.map { .init(coin_id: $0.id, image: $0.small, name: $0.name, symbol: $0.symbol, price: $0.data.roundedPrice, priceChangePercent: $0.data.roundedChangePercent) }
+   }
+   
+   var nftsToTrendingListViewItems: [TrendingListViewItem] {
+      return nfts.map { .init(coin_id: $0.id, image: $0.thumb, name: $0.name, symbol: $0.symbol, price: $0.data.roundedPrice, priceChangePercent: $0.data.roundedChangePercent) }
+   }
 }
 
 struct CoinItem: Hashable, Decodable {
@@ -69,6 +86,22 @@ struct NftItemData: Hashable, Decodable {
    enum CodingKeys: String, CodingKey {
       case floorPrice = "floor_price"
       case floorPriceChangePercent = "floorPrice_in_usd_24h_percentage_change"
+   }
+   
+   var roundedPrice: Double {
+      if let price = Double(floorPrice) {
+         return round(price * 100) / 100
+      } else {
+         return 0.0
+      }
+   }
+   
+   var roundedChangePercent: Double {
+      if let percent = Double(floorPriceChangePercent) {
+         return round(percent * 100) / 100
+      } else {
+         return 0.0
+      }
    }
 }
 
