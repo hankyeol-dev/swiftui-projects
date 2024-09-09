@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		81E25B882C8D47B7005C3F09 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E25B872C8D47B7005C3F09 /* HomeView.swift */; };
+		81E25B8B2C8E72BB005C3F09 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E25B8A2C8E72BB005C3F09 /* Network.swift */; };
 		81EB88452C8AA54800F997C4 /* SwiftUI_CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB88442C8AA54800F997C4 /* SwiftUI_CryptoApp.swift */; };
 		81EB88472C8AA54800F997C4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB88462C8AA54800F997C4 /* ContentView.swift */; };
 		81EB88492C8AA54900F997C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81EB88482C8AA54900F997C4 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		81E25B872C8D47B7005C3F09 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		81E25B8A2C8E72BB005C3F09 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		81EB88412C8AA54800F997C4 /* SwiftUI-Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Crypto.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81EB88442C8AA54800F997C4 /* SwiftUI_CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_CryptoApp.swift; sourceTree = "<group>"; };
 		81EB88462C8AA54800F997C4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,6 +54,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81E25B892C8E72B0005C3F09 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				81E25B8A2C8E72BB005C3F09 /* Network.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		81EB88382C8AA54800F997C4 = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		81EB88432C8AA54800F997C4 /* SwiftUI-Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				81E25B892C8E72B0005C3F09 /* Network */,
 				81EB88612C8ACE4200F997C4 /* Extensions */,
 				81EB885B2C8ABF9400F997C4 /* Components */,
 				81EB88572C8ABF1300F997C4 /* Presentation */,
@@ -223,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E25B8B2C8E72BB005C3F09 /* Network.swift in Sources */,
 				81EB88652C8AF53200F997C4 /* FavoriteView.swift in Sources */,
 				81EB88692C8B01AB00F997C4 /* SearchView.swift in Sources */,
 				81EB88542C8AA57400F997C4 /* Crypto.swift in Sources */,

@@ -21,6 +21,10 @@
 		814CE4512C87EE80006C9199 /* NavigatingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */; };
 		814CE4542C8869F6006C9199 /* RandomImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4532C8869F6006C9199 /* RandomImage.swift */; };
 		814CE4562C8880DD006C9199 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4552C8880DD006C9199 /* CategoryView.swift */; };
+		81E25B8E2C8E7C1E005C3F09 /* Observable1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E25B8D2C8E7C1E005C3F09 /* Observable1.swift */; };
+		81E25B902C8E800A005C3F09 /* Observable2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E25B8F2C8E800A005C3F09 /* Observable2.swift */; };
+		81E25B922C8E8D73005C3F09 /* Observable3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E25B912C8E8D73005C3F09 /* Observable3.swift */; };
+		81E25B962C8EACAD005C3F09 /* HealthkitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E25B952C8EACAD005C3F09 /* HealthkitTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +43,12 @@
 		814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatingWrapper.swift; sourceTree = "<group>"; };
 		814CE4532C8869F6006C9199 /* RandomImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomImage.swift; sourceTree = "<group>"; };
 		814CE4552C8880DD006C9199 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		81E25B8D2C8E7C1E005C3F09 /* Observable1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable1.swift; sourceTree = "<group>"; };
+		81E25B8F2C8E800A005C3F09 /* Observable2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable2.swift; sourceTree = "<group>"; };
+		81E25B912C8E8D73005C3F09 /* Observable3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable3.swift; sourceTree = "<group>"; };
+		81E25B932C8E9C07005C3F09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		81E25B942C8E9C2D005C3F09 /* swiftui-transitionNetwork.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "swiftui-transitionNetwork.entitlements"; sourceTree = "<group>"; };
+		81E25B952C8EACAD005C3F09 /* HealthkitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +81,9 @@
 		8105FE342C85427E005A1267 /* swiftui-transitionNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				81E25B942C8E9C2D005C3F09 /* swiftui-transitionNetwork.entitlements */,
+				81E25B932C8E9C07005C3F09 /* Info.plist */,
+				81E25B8C2C8E7C0B005C3F09 /* 240909 */,
 				814CE4522C8869E1006C9199 /* 240904-assignment */,
 				814CE44B2C87E530006C9199 /* 240904 */,
 				812445D22C8698C2001951BB /* 240903 */,
@@ -127,6 +140,17 @@
 				814CE4552C8880DD006C9199 /* CategoryView.swift */,
 			);
 			path = "240904-assignment";
+			sourceTree = "<group>";
+		};
+		81E25B8C2C8E7C0B005C3F09 /* 240909 */ = {
+			isa = PBXGroup;
+			children = (
+				81E25B8D2C8E7C1E005C3F09 /* Observable1.swift */,
+				81E25B8F2C8E800A005C3F09 /* Observable2.swift */,
+				81E25B912C8E8D73005C3F09 /* Observable3.swift */,
+				81E25B952C8EACAD005C3F09 /* HealthkitTest.swift */,
+			);
+			path = 240909;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,9 +230,13 @@
 				814CE4512C87EE80006C9199 /* NavigatingWrapper.swift in Sources */,
 				8105FE362C85427E005A1267 /* swiftui_transitionNetworkApp.swift in Sources */,
 				812445D62C86A832001951BB /* NetworkView2.swift in Sources */,
+				81E25B922C8E8D73005C3F09 /* Observable3.swift in Sources */,
+				81E25B902C8E800A005C3F09 /* Observable2.swift in Sources */,
 				814CE44F2C87E6AB006C9199 /* NavigationView1.swift in Sources */,
 				814CE4542C8869F6006C9199 /* RandomImage.swift in Sources */,
 				812445D82C86AF15001951BB /* Network.swift in Sources */,
+				81E25B962C8EACAD005C3F09 /* HealthkitTest.swift in Sources */,
+				81E25B8E2C8E7C1E005C3F09 /* Observable1.swift in Sources */,
 				812445D42C8698D8001951BB /* NetworkView1.swift in Sources */,
 				814CE44D2C87E546006C9199 /* ObservableObject1.swift in Sources */,
 			);
@@ -341,12 +369,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "swiftui-transitionNetwork/swiftui-transitionNetwork.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftui-transitionNetwork/Preview Content\"";
 				DEVELOPMENT_TEAM = YM49LMS87D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "swiftui-transitionNetwork/Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "건강 데이터를 활용하는데 사용됩니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터를 업데이트 하는데 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -370,12 +402,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "swiftui-transitionNetwork/swiftui-transitionNetwork.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"swiftui-transitionNetwork/Preview Content\"";
 				DEVELOPMENT_TEAM = YM49LMS87D;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "swiftui-transitionNetwork/Info.plist";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "건강 데이터를 활용하는데 사용됩니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "건강 데이터를 업데이트 하는데 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

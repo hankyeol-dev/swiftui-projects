@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TrendingView: View {
    @EnvironmentObject private var favoriteList: FavoriteObject
-   @State private var trendingItems: TrendingOutputs = dummyTrendings
+   @State private var trendingItems: TrendingOutputs = .init(coins: [], nfts: [])
    
    var body: some View {
       NavigationView {
@@ -26,12 +26,14 @@ struct TrendingView: View {
             LazyVStack {
                TrendingSectionTitleView(title: "Top 15 Coins")
                ScrollView(.horizontal) {
-                  LazyHStack {
-                     ForEach(0..<5) { num in
-                        let targetIndex = num * 3
-                        let sendItems = trendingItems.coinsToTrendingListViewItems[targetIndex...targetIndex + 2].map { $0 }
-                        
-                        TrendingList(startIndex: targetIndex + 1, isCoinList: true, listItems: sendItems)
+                  if !trendingItems.coins.isEmpty {
+                     LazyHStack {
+                        ForEach(0..<5) { num in
+                           let targetIndex = num * 3
+                           let sendItems = trendingItems.coinsToTrendingListViewItems[targetIndex...targetIndex + 2].map { $0 }
+                           
+                           TrendingList(startIndex: targetIndex + 1, isCoinList: true, listItems: sendItems)
+                        }
                      }
                   }
                }
@@ -42,18 +44,29 @@ struct TrendingView: View {
             LazyVStack {
                TrendingSectionTitleView(title: "Top 7 NFTs")
                ScrollView(.horizontal) {
-                  LazyHStack {
-                     ForEach(0..<3) { num in
-                        let targetIndex = num * 3
-                        let sendItems = trendingItems.nftsToTrendingListViewItems[targetIndex == 6 ? 6...6 : targetIndex...targetIndex + 2].map { $0 }
-                        
-                        TrendingList(startIndex: targetIndex + 1, isCoinList: false, listItems: sendItems)
+                  if !trendingItems.nfts.isEmpty {
+                     LazyHStack {
+                        ForEach(0..<3) { num in
+                           let targetIndex = num * 3
+                           let sendItems = trendingItems.nftsToTrendingListViewItems[targetIndex == 6 ? 6...6 : targetIndex...targetIndex + 2].map { $0 }
+                           
+                           TrendingList(startIndex: targetIndex + 1, isCoinList: false, listItems: sendItems)
+                        }
                      }
                   }
                }
             }
          }
          .navigationTitle("Crypto Coin")
+//         .task {
+//            do {
+//               let datas = try await Network.getTrending()
+//               trendingItems.coins = datas.coins
+//               trendingItems.nfts = datas.nfts
+//            } catch {
+//               print(error)
+//            }
+//         }
       }
    }
 }

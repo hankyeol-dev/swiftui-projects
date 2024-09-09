@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TrendingListViewItem: Hashable {
    let coin_id: String
@@ -16,17 +17,33 @@ struct TrendingListViewItem: Hashable {
    let priceChangePercent: Double
 }
 
-struct TrendingOutputs {
-   let coins: [CoinItem]
-   let nfts: [NftItem]
+struct TrendingOutputs: Decodable {
+   var coins: [CoinItemItem]
+   var nfts: [NftItem]
    
    var coinsToTrendingListViewItems: [TrendingListViewItem] {
-      return coins.map { .init(coin_id: $0.id, image: $0.small, name: $0.name, symbol: $0.symbol, price: $0.data.roundedPrice, priceChangePercent: $0.data.roundedChangePercent) }
+      return coins.map { .init(
+         coin_id: $0.item.id,
+         image: $0.item.small,
+         name: $0.item.name,
+         symbol: $0.item.symbol,
+         price: $0.item.data.roundedPrice,
+         priceChangePercent: $0.item.data.roundedChangePercent) }
    }
    
    var nftsToTrendingListViewItems: [TrendingListViewItem] {
-      return nfts.map { .init(coin_id: $0.id, image: $0.thumb, name: $0.name, symbol: $0.symbol, price: $0.data.roundedPrice, priceChangePercent: $0.data.roundedChangePercent) }
+      return nfts.map { .init(
+         coin_id: $0.id,
+         image: $0.small,
+         name: $0.name,
+         symbol: $0.symbol,
+         price: $0.roundedPrice,
+         priceChangePercent: $0.roundedChangePercent) }
    }
+}
+
+struct CoinItemItem: Hashable, Decodable {
+   let item: CoinItem
 }
 
 struct CoinItem: Hashable, Decodable {
@@ -55,7 +72,7 @@ struct CoinItemData: Hashable, Decodable {
    
    enum CodingKeys: String, CodingKey {
       case price
-      case priceChangePercent = "price_change_percentge_24h"
+      case priceChangePercent = "price_change_percentage_24h"
    }
    
    var roundedPrice: Double {
@@ -75,33 +92,25 @@ struct NftItem: Hashable, Decodable {
    let id: String
    let name: String
    let symbol: String
-   let thumb: String
-   let data: NftItemData
-}
-
-struct NftItemData: Hashable, Decodable {
-   let floorPrice: String
-   let floorPriceChangePercent: String
+   let small: String
+   let floorPrice: Double
+   let floorPriceChangePercent: Double
    
    enum CodingKeys: String, CodingKey {
-      case floorPrice = "floor_price"
-      case floorPriceChangePercent = "floorPrice_in_usd_24h_percentage_change"
+      case id
+      case name
+      case symbol
+      case small = "thumb"
+      case floorPrice = "floor_price_in_native_currency"
+      case floorPriceChangePercent = "floor_price_24h_percentage_change"
    }
    
    var roundedPrice: Double {
-      if let price = Double(floorPrice) {
-         return round(price * 100) / 100
-      } else {
-         return 0.0
-      }
+      return round(floorPrice * 100) / 100
    }
    
    var roundedChangePercent: Double {
-      if let percent = Double(floorPriceChangePercent) {
-         return round(percent * 100) / 100
-      } else {
-         return 0.0
-      }
+      return round(floorPriceChangePercent * 100) / 100
    }
 }
 

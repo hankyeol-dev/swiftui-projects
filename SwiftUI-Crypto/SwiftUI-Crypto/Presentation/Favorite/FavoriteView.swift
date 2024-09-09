@@ -8,54 +8,69 @@
 import SwiftUI
 
 struct FavoriteView: View {
-   
+   @EnvironmentObject private var favoriteList: FavoriteObject
    @State private var colors: [Color] = [.red, .blue, .purple, .yellow, .black, .indigo, .cyan, .brown, .mint, .orange]
-   @State private var draggingColor: Color?
+   @State private var draggingItem: CoinItem?
    
    var body: some View {
       NavigationStack {
          ScrollView(.vertical) {
             let columns = Array(repeating: GridItem(spacing: 10), count: 2)
             LazyVGrid(columns: columns, spacing: 10, content: {
-               ForEach(colors, id:\.self) { color in
-                  GeometryReader {
-                     let size = $0.size
-                     RoundedRectangle(cornerRadius: 10)
-                        .fill(color.gradient)
-                        .draggable(color) {
-                           RoundedRectangle(cornerRadius: 10)
-                              .fill(.ultraThinMaterial)
-                              .frame(width: size.width, height: size.height)
-                              .onAppear {
-                                 draggingColor = color
-                              }
-                        }
-                        .dropDestination(for: Color.self) { items, location in
-                           draggingColor = nil
-                           return false
-                        } isTargeted: { status in
-                           if let draggingColor, status, draggingColor != color {
-                              if let colorIndex = colors.firstIndex(of: draggingColor),
-                                 let destinationIndex = colors.firstIndex(of: color) {
-                                 withAnimation {
-                                    let source = colors.remove(at: colorIndex)
-                                    colors.insert(source, at: destinationIndex)
-                                 }
-                              }
-                           }
-                        }
-
-                  }
-                  .frame(height: 100)
+               ForEach(favoriteList.favoriteCoinList, id:\.id) { item in
+                  FavoriteListItemView(favoriteItem: item)
                }
             })
             .padding()
          }
-         .navigationTitle("DragAndDropGrid")
+         .navigationTitle("Favorite")
       }
+   }
+}
+
+private struct FavoriteListItemView: View {
+   fileprivate let favoriteItem: CoinItem
+   
+   var body: some View {
+      VStack(alignment: .leading, spacing: 12) {
+         HStack(alignment: .center, spacing: 12) {
+            AsyncImage(url: URL(string: favoriteItem.small)) { phase in
+               if let image = phase.image {
+                  image
+                     .resizable()
+                     .frame(width: 24, height: 24)
+                     .clipShape(Circle())
+               }
+               if phase.error != nil {
+                  Color.graySm
+               }
+            }
+            VStack(alignment: .leading, spacing: 4) {
+               Text(favoriteItem.name)
+                  .font(.system(size: 16, weight: .bold))
+               Text(favoriteItem.symbol)
+                  .font(.system(size: 13))
+                  .foregroundStyle(.grayMd)
+            }
+            Spacer()
+         }
+         Spacer()
+         VStack(alignment: .leading, spacing: 4) {
+            Text(String(favoriteItem.data.roundedPrice.formatted(.currency(code: "usd"))))
+               .font(.system(size: 16, weight: .semibold))
+            Text(String(favoriteItem.data.roundedChangePercent) + "%")
+               .font(.system(size: 16, weight: .semibold))
+               .foregroundStyle(favoriteItem.data.roundedChangePercent < 0 ? .red : .blue)
+         }
+      }
+      .padding(.horizontal, 20)
+      .padding(.vertical, 16)
+      .background(.graySm)
+      .cornerRadius(16, corners: .allCorners)
    }
 }
 
 #Preview {
    FavoriteView()
+      .environmentObject(FavoriteObject())
 }

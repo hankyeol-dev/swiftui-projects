@@ -10,17 +10,17 @@ import SwiftUI
 struct SearchView: View {
    @EnvironmentObject private var favoriteList: FavoriteObject
    @State private var searchedText: String = ""
-   @State private var searchedList: [SearchedCoin] = dummySearchedCoins.coins.map { coin in
-      return SearchedCoin(coin: coin, isSelected: false)
-   }
+   @State private var searchedList: [SearchedCoin] = []
    
    var body: some View {
       NavigationStack {
-         ExpendableSearchBar()
+         coinSearchBar()
          ScrollView(.vertical) {
-            LazyVStack(spacing: 12) {
-               ForEach($searchedList, id: \.coin.id) { search in
-                  SearchedItemView(searchedCoin: search)
+            if !searchedList.isEmpty {
+               LazyVStack(spacing: 12) {
+                  ForEach($searchedList, id: \.coin.id) { search in
+                     SearchedItemView(searchedCoin: search)
+                  }
                }
             }
          }
@@ -29,7 +29,7 @@ struct SearchView: View {
    }
    
    @ViewBuilder
-   fileprivate func ExpendableSearchBar(_ titleMessage: String = "Coin Search") -> some View {
+   fileprivate func coinSearchBar(_ titleMessage: String = "Coin Search") -> some View {
       VStack(spacing: 10) {
          Text(titleMessage)
             .font(.largeTitle.bold())
@@ -39,10 +39,24 @@ struct SearchView: View {
             Image(systemName: "magnifyingglass")
                .font(.title3)
             TextField("코인 검색", text: $searchedText)
+               .onSubmit {
+                  Task {
+                     do {
+                        let searchedItems = try await Network.searchCoin(searchedText.lowercased())
+                        
+                        if searchedItems.coins.isEmpty {
+                           searchedList = []
+                        } else {
+                           searchedList = searchedItems.coins.map { .init(coin: $0, isSelected: favoriteList.isFavoriteCoin($0.id)) }
+                        }
+                     } catch {
+                        searchedList = []
+                     }
+                  }
+               }
          }
          .padding(.horizontal, 16)
          .padding(.vertical, 16)
-//         .frame(height: 44)
          .background(RoundedRectangle(cornerRadius: 25.0).fill(.graySm))
       }
       .padding()
