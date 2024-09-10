@@ -28,7 +28,7 @@ struct Observable3: View {
 }
 
 struct Observable3MainView: View {
-   @ObservedObject private var viewModel = Observable3ViewModel() // 위에서 아래로 주입하면, observedobject가 init 되지는 않음
+   @ObservedObject private var viewModel = Observable3ViewModel()
    @State private var random: Int = 0
    
    var body: some View {

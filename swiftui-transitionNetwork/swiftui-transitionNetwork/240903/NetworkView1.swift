@@ -40,7 +40,7 @@ struct NetworkView1: View {
                   HStack {
                      ForEach(0..<3) { _ in
                         SpendBannerView(
-                           color: .random(),
+                           color: .red,
                            totalAmount: spendList.reduce(0, { cv, mv in cv + mv.amount })
                         )
                         .containerRelativeFrame(.horizontal)

@@ -34,7 +34,7 @@ struct Observable1: View {
          - 상위뷰가 업데이트 되더라도, @StateObject는 재사용하기 때문에 초기화가 다시 되지 않는다.
     */
    
-   @StateObject private var viewModel = Observable1ViewModel()
+   @ObservedObject private var viewModel = Observable1ViewModel()
    
    var body: some View {
       Text("\(viewModel.count)")
