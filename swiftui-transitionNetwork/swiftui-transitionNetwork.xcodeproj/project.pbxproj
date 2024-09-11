@@ -25,6 +25,9 @@
 		812445D42C8698D8001951BB /* NetworkView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812445D32C8698D8001951BB /* NetworkView1.swift */; };
 		812445D62C86A832001951BB /* NetworkView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812445D52C86A832001951BB /* NetworkView2.swift */; };
 		812445D82C86AF15001951BB /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 812445D72C86AF15001951BB /* Network.swift */; };
+		8136B99F2C9121C200CF6C53 /* Concurrency1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8136B99E2C9121C200CF6C53 /* Concurrency1.swift */; };
+		8136B9A12C91223E00CF6C53 /* Concurrency1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8136B9A02C91223E00CF6C53 /* Concurrency1VC.swift */; };
+		8136B9A32C91272600CF6C53 /* Concurrency1Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8136B9A22C91272600CF6C53 /* Concurrency1Manager.swift */; };
 		814CE44D2C87E546006C9199 /* ObservableObject1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE44C2C87E546006C9199 /* ObservableObject1.swift */; };
 		814CE44F2C87E6AB006C9199 /* NavigationView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE44E2C87E6AB006C9199 /* NavigationView1.swift */; };
 		814CE4512C87EE80006C9199 /* NavigatingWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */; };
@@ -56,6 +59,9 @@
 		812445D32C8698D8001951BB /* NetworkView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView1.swift; sourceTree = "<group>"; };
 		812445D52C86A832001951BB /* NetworkView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkView2.swift; sourceTree = "<group>"; };
 		812445D72C86AF15001951BB /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		8136B99E2C9121C200CF6C53 /* Concurrency1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency1.swift; sourceTree = "<group>"; };
+		8136B9A02C91223E00CF6C53 /* Concurrency1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency1VC.swift; sourceTree = "<group>"; };
+		8136B9A22C91272600CF6C53 /* Concurrency1Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concurrency1Manager.swift; sourceTree = "<group>"; };
 		814CE44C2C87E546006C9199 /* ObservableObject1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject1.swift; sourceTree = "<group>"; };
 		814CE44E2C87E6AB006C9199 /* NavigationView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView1.swift; sourceTree = "<group>"; };
 		814CE4502C87EE80006C9199 /* NavigatingWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatingWrapper.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			children = (
 				81E25B942C8E9C2D005C3F09 /* swiftui-transitionNetwork.entitlements */,
 				81E25B932C8E9C07005C3F09 /* Info.plist */,
+				8136B99D2C911FF900CF6C53 /* 240911 */,
 				810B54172C8FD4EC00A5C741 /* 240910 */,
 				81E25B8C2C8E7C0B005C3F09 /* 240909 */,
 				814CE4522C8869E1006C9199 /* 240904-assignment */,
@@ -164,6 +171,16 @@
 				812445D72C86AF15001951BB /* Network.swift */,
 			);
 			path = 240903;
+			sourceTree = "<group>";
+		};
+		8136B99D2C911FF900CF6C53 /* 240911 */ = {
+			isa = PBXGroup;
+			children = (
+				8136B99E2C9121C200CF6C53 /* Concurrency1.swift */,
+				8136B9A02C91223E00CF6C53 /* Concurrency1VC.swift */,
+				8136B9A22C91272600CF6C53 /* Concurrency1Manager.swift */,
+			);
+			path = 240911;
 			sourceTree = "<group>";
 		};
 		814CE44B2C87E530006C9199 /* 240904 */ = {
@@ -270,6 +287,7 @@
 				8105FE492C855532005A1267 /* ContentView2.swift in Sources */,
 				810B542A2C8FED9700A5C741 /* Combine5.swift in Sources */,
 				814CE4562C8880DD006C9199 /* CategoryView.swift in Sources */,
+				8136B9A12C91223E00CF6C53 /* Concurrency1VC.swift in Sources */,
 				8105FE382C85427E005A1267 /* ContentView.swift in Sources */,
 				814CE4512C87EE80006C9199 /* NavigatingWrapper.swift in Sources */,
 				8105FE362C85427E005A1267 /* swiftui_transitionNetworkApp.swift in Sources */,
@@ -280,11 +298,13 @@
 				810B54262C8FE83A00A5C741 /* Combine4ViewModel.swift in Sources */,
 				81E25B902C8E800A005C3F09 /* Observable2.swift in Sources */,
 				814CE44F2C87E6AB006C9199 /* NavigationView1.swift in Sources */,
+				8136B9A32C91272600CF6C53 /* Concurrency1Manager.swift in Sources */,
 				814CE4542C8869F6006C9199 /* RandomImage.swift in Sources */,
 				812445D82C86AF15001951BB /* Network.swift in Sources */,
 				81E25B962C8EACAD005C3F09 /* HealthkitTest.swift in Sources */,
 				810B54212C8FDA7B00A5C741 /* Combine3ViewModel.swift in Sources */,
 				810B54232C8FE81200A5C741 /* Combine4.swift in Sources */,
+				8136B99F2C9121C200CF6C53 /* Concurrency1.swift in Sources */,
 				81E25B8E2C8E7C1E005C3F09 /* Observable1.swift in Sources */,
 				810B54282C8FED5700A5C741 /* Combine5ViewModel.swift in Sources */,
 				812445D42C8698D8001951BB /* NetworkView1.swift in Sources */,

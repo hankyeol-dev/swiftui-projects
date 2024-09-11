@@ -16,6 +16,7 @@
 		810B54102C8F0D8F00A5C741 /* HistoricDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B540F2C8F0D8F00A5C741 /* HistoricDataView.swift */; };
 		810B54122C8F11BA00A5C741 /* ProgressCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B54112C8F11BA00A5C741 /* ProgressCircleView.swift */; };
 		810B54162C8F158600A5C741 /* WorkoutCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 810B54152C8F158600A5C741 /* WorkoutCardView.swift */; };
+		81E07B262C9058D800184B9A /* HealthkitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E07B252C9058D800184B9A /* HealthkitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		810B540F2C8F0D8F00A5C741 /* HistoricDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoricDataView.swift; sourceTree = "<group>"; };
 		810B54112C8F11BA00A5C741 /* ProgressCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCircleView.swift; sourceTree = "<group>"; };
 		810B54152C8F158600A5C741 /* WorkoutCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutCardView.swift; sourceTree = "<group>"; };
+		81E07B252C9058D800184B9A /* HealthkitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		810B53FC2C8F0BA200A5C741 /* swiftui-healthapp */ = {
 			isa = PBXGroup;
 			children = (
+				81E07B242C9058C800184B9A /* Service */,
 				810B54142C8F155700A5C741 /* App */,
 				810B54132C8F151E00A5C741 /* Home */,
 				810B540F2C8F0D8F00A5C741 /* HistoricDataView.swift */,
@@ -96,6 +99,14 @@
 				810B53FD2C8F0BA200A5C741 /* swiftui_healthappApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		81E07B242C9058C800184B9A /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				81E07B252C9058D800184B9A /* HealthkitManager.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +181,7 @@
 			files = (
 				810B54162C8F158600A5C741 /* WorkoutCardView.swift in Sources */,
 				810B54002C8F0BA200A5C741 /* ContentView.swift in Sources */,
+				81E07B262C9058D800184B9A /* HealthkitManager.swift in Sources */,
 				810B54122C8F11BA00A5C741 /* ProgressCircleView.swift in Sources */,
 				810B540E2C8F0D3100A5C741 /* HomeView.swift in Sources */,
 				810B54102C8F0D8F00A5C741 /* HistoricDataView.swift in Sources */,
