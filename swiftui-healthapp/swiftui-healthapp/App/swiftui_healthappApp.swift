@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct swiftui_healthappApp: App {
-    var body: some Scene {
-        WindowGroup {
-            MainTabView()
-        }
-    }
+   
+   var body: some Scene {
+      WindowGroup {
+         CoreDataTestView()
+//            .environment(\.managedObjectContext, viewContext)
+      }
+   }
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct swiftui_transitionNetworkApp: App {
     var body: some Scene {
         WindowGroup {
-            Concurrency1()
+            TodoView1()
         }
     }
 }

@@ -66,12 +66,16 @@ final class Concurrency1VC: UIViewController {
 //      }
       
       Task {
-         let imageViews = [image1, image2, image3]
-//         do {
-//            image3.image = try await Concurrency1Manager.requestImage()
-//         } catch {
-//            image3.backgroundColor = .gray.withAlphaComponent(0.5)
-//         }
+         do {
+            image3.image = try await Concurrency1Manager.requestImage()
+         } catch {
+            image3.backgroundColor = .gray.withAlphaComponent(0.5)
+         }
+      }
+      
+      
+      Task {
+         let imageViews = [image1, image2]
          let images = await Concurrency1Manager.requestGroup()
          if images.isEmpty {
             imageViews.forEach { $0.backgroundColor = .gray.withAlphaComponent(0.5) }

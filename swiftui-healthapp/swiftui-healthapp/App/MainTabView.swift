@@ -9,21 +9,20 @@ import SwiftUI
 
 enum TabType: String {
    case home
-   case chart
+   case calendar
 }
 
 struct MainTabView: View {
-   @State private var selectedTab: TabType = .home
+   @State private var selectedTab: TabType = .calendar
    
    var body: some View {
       TabView(selection: $selectedTab) {
+         CalendarView(logic: .init())
+            .tag(TabType.calendar)
+            .tabItem { Image(systemName: "calendar") }
          HomeView()
             .tag(TabType.home)
             .tabItem { Image(systemName: "house") }
-         
-         HistoricDataView()
-            .tag(TabType.chart)
-            .tabItem { Image(systemName: "chart.line.uptrend.xyaxis") }
       }
    }
 }

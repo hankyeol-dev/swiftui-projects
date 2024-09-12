@@ -17,5 +17,6 @@ struct Concurrency1: View {
 }
 
 #Preview {
-   Concurrency1()
+   Concurrency1() 
 }
+ 
