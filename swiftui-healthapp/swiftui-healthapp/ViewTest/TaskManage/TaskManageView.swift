@@ -11,6 +11,7 @@ struct TaskManageView: View {
    @State private var current: Date = .now
    @State private var weekSlider: [[Date.WeekdayItem]] = []
    @State private var currentWeek: Int = 0
+   @Namespace private var animation
    
    var body: some View {
       VStack(alignment: .leading, spacing: 0) {
@@ -21,9 +22,11 @@ struct TaskManageView: View {
             TabView(selection: $currentWeek) {
                ForEach(weekSlider.indices, id: \.self) { index in
                   weekDayView(weekSlider[index])
+                     .tag(index)
                }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
+            .frame(height: 90)
          }
          .padding()
          .frame(maxWidth: .infinity)
@@ -56,15 +59,28 @@ struct TaskManageView: View {
                   .foregroundStyle(.gray)
                Text(day.date.formatedDate("dd"))
                   .font(.system(size: 20, weight: .semibold))
-                  .frame(minWidth: 40, minHeight: 40)
+                  .frame(minWidth: 50, minHeight: 55)
                   .foregroundStyle(isSameDate(day.date, current) ? .white : .black)
                   .background {
                      if isSameDate(day.date, current) {
                         RoundedRectangle(cornerRadius: 12)
                            .fill(.black)
-                        
+                           .offset(y: 3)
+                           .matchedGeometryEffect(id: "TABINDICATOR", in: animation)
+                     }
+                     if day.date.isToday() {
+                        Circle()
+                           .fill(.white)
+                           .frame(width: 5, height: 5)
+                           .vSpacing(.bottom)
                      }
                   }
+            }
+            .hSpacing(.center)
+            .onTapGesture {
+               withAnimation(.snappy) {
+                  current = day.date
+               }
             }
          }
       }

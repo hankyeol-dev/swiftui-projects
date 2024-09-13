@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
-import CoreData
+import MijickNavigationView
 
 @main
 struct swiftui_healthappApp: App {
    
    var body: some Scene {
       WindowGroup {
-         CoreDataTestView()
-//            .environment(\.managedObjectContext, viewContext)
+         RealmTestView()
+            .implementNavigationView(config: navigationConfig)
       }
+   }
+}
+
+extension swiftui_healthappApp {
+   var navigationConfig: NavigationGlobalConfig {
+      var config = NavigationGlobalConfig()
+      config.backgroundColour = .white
+      return config
    }
 }

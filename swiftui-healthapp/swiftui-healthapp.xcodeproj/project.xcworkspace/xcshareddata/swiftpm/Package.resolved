@@ -1,5 +1,5 @@
 {
-  "originHash" : "b56fda1893c1c425e86ca99000dcab99c0428d70b0304973bac914b2f02e22be",
+  "originHash" : "e48fd4e9ff7bb661e86e3c5327f00937cb565c85b9eae11dd126deb9d6069528",
   "pins" : [
     {
       "identity" : "calendarview",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "0fbdec5172fccb90f707472eeaea4ffe095278f6",
         "version" : "2.8.4"
+      }
+    },
+    {
+      "identity" : "navigationview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/NavigationView.git",
+      "state" : {
+        "revision" : "f9e78da74871bd862db320b9a27cbf0e20e85a93",
+        "version" : "1.1.3"
       }
     },
     {
