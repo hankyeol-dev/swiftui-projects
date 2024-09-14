@@ -25,6 +25,8 @@
 		81FB15B02C945760007E70D2 /* Sub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15AF2C945760007E70D2 /* Sub.swift */; };
 		81FB15B22C945770007E70D2 /* SmartList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B12C945770007E70D2 /* SmartList.swift */; };
 		81FB15B42C945784007E70D2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B32C945784007E70D2 /* Subject.swift */; };
+		81FB15B62C951F64007E70D2 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B52C951F64007E70D2 /* CustomTabbar.swift */; };
+		81FB15B82C952FDF007E70D2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		81FB15AF2C945760007E70D2 /* Sub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sub.swift; sourceTree = "<group>"; };
 		81FB15B12C945770007E70D2 /* SmartList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartList.swift; sourceTree = "<group>"; };
 		81FB15B32C945784007E70D2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		81FB15B52C951F64007E70D2 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
+		81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 		81FB15A62C945152007E70D2 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				81FB15B52C951F64007E70D2 /* CustomTabbar.swift */,
+				81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -253,7 +259,9 @@
 				81FB15B02C945760007E70D2 /* Sub.swift in Sources */,
 				81FB15AE2C945745007E70D2 /* Think.swift in Sources */,
 				81FB15B42C945784007E70D2 /* Subject.swift in Sources */,
+				81FB15B82C952FDF007E70D2 /* CustomNavigationBar.swift in Sources */,
 				81FB15A42C945121007E70D2 /* +Font.swift in Sources */,
+				81FB15B62C951F64007E70D2 /* CustomTabbar.swift in Sources */,
 				81FB15852C944D64007E70D2 /* Home.swift in Sources */,
 				81FB15832C944D64007E70D2 /* swiftui_releaseproject_playgroundApp.swift in Sources */,
 				81FB15B22C945770007E70D2 /* SmartList.swift in Sources */,
