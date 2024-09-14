@@ -27,6 +27,13 @@
 		81FB15B42C945784007E70D2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B32C945784007E70D2 /* Subject.swift */; };
 		81FB15B62C951F64007E70D2 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B52C951F64007E70D2 /* CustomTabbar.swift */; };
 		81FB15B82C952FDF007E70D2 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */; };
+		81FB15BB2C95319F007E70D2 /* SubjectSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15BA2C95319F007E70D2 /* SubjectSelection.swift */; };
+		81FB15BE2C953400007E70D2 /* +View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15BD2C953400007E70D2 /* +View.swift */; };
+		81FB15C02C95341F007E70D2 /* AsRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15BF2C95341F007E70D2 /* AsRoundedButton.swift */; };
+		81FB15C32C953A96007E70D2 /* +Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C22C953A96007E70D2 /* +Realm.swift */; };
+		81FB15C62C9540DE007E70D2 /* SubjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C52C9540DE007E70D2 /* SubjectItem.swift */; };
+		81FB15C82C957CB1007E70D2 /* TestSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C72C957CB1007E70D2 /* TestSubjectView.swift */; };
+		81FB15CA2C957D05007E70D2 /* +Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C92C957D05007E70D2 /* +Style.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +58,13 @@
 		81FB15B32C945784007E70D2 /* Subject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
 		81FB15B52C951F64007E70D2 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		81FB15BA2C95319F007E70D2 /* SubjectSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectSelection.swift; sourceTree = "<group>"; };
+		81FB15BD2C953400007E70D2 /* +View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+View.swift"; sourceTree = "<group>"; };
+		81FB15BF2C95341F007E70D2 /* AsRoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsRoundedButton.swift; sourceTree = "<group>"; };
+		81FB15C22C953A96007E70D2 /* +Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Realm.swift"; sourceTree = "<group>"; };
+		81FB15C52C9540DE007E70D2 /* SubjectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectItem.swift; sourceTree = "<group>"; };
+		81FB15C72C957CB1007E70D2 /* TestSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSubjectView.swift; sourceTree = "<group>"; };
+		81FB15C92C957D05007E70D2 /* +Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Style.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +102,7 @@
 				81FB15902C944D70007E70D2 /* App */,
 				81FB15A22C945113007E70D2 /* Features */,
 				81FB15A12C94510B007E70D2 /* Extensions */,
+				81FB15C12C953A89007E70D2 /* Helpers */,
 				81FB15AC2C945737007E70D2 /* Models */,
 				81FB15A52C945143007E70D2 /* Presentation */,
 				81FB15882C944D65007E70D2 /* Preview Content */,
@@ -132,6 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				81FB15A32C945121007E70D2 /* +Font.swift */,
+				81FB15BD2C953400007E70D2 /* +View.swift */,
+				81FB15C92C957D05007E70D2 /* +Style.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -139,6 +156,7 @@
 		81FB15A22C945113007E70D2 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				81FB15B92C953193007E70D2 /* Form */,
 				81FB15842C944D64007E70D2 /* Home.swift */,
 			);
 			path = Features;
@@ -147,6 +165,7 @@
 		81FB15A52C945143007E70D2 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				81FB15BC2C9533F5007E70D2 /* CustomModifier */,
 				81FB15A62C945152007E70D2 /* Custom */,
 			);
 			path = Presentation;
@@ -164,12 +183,46 @@
 		81FB15AC2C945737007E70D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				81FB15C42C9540D1007E70D2 /* View */,
 				81FB15AD2C945745007E70D2 /* Think.swift */,
 				81FB15AF2C945760007E70D2 /* Sub.swift */,
 				81FB15B12C945770007E70D2 /* SmartList.swift */,
 				81FB15B32C945784007E70D2 /* Subject.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		81FB15B92C953193007E70D2 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				81FB15BA2C95319F007E70D2 /* SubjectSelection.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
+		81FB15BC2C9533F5007E70D2 /* CustomModifier */ = {
+			isa = PBXGroup;
+			children = (
+				81FB15BF2C95341F007E70D2 /* AsRoundedButton.swift */,
+			);
+			path = CustomModifier;
+			sourceTree = "<group>";
+		};
+		81FB15C12C953A89007E70D2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				81FB15C22C953A96007E70D2 /* +Realm.swift */,
+				81FB15C72C957CB1007E70D2 /* TestSubjectView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		81FB15C42C9540D1007E70D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				81FB15C52C9540DE007E70D2 /* SubjectItem.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,14 +310,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FB15B02C945760007E70D2 /* Sub.swift in Sources */,
+				81FB15C02C95341F007E70D2 /* AsRoundedButton.swift in Sources */,
 				81FB15AE2C945745007E70D2 /* Think.swift in Sources */,
+				81FB15CA2C957D05007E70D2 /* +Style.swift in Sources */,
 				81FB15B42C945784007E70D2 /* Subject.swift in Sources */,
 				81FB15B82C952FDF007E70D2 /* CustomNavigationBar.swift in Sources */,
 				81FB15A42C945121007E70D2 /* +Font.swift in Sources */,
 				81FB15B62C951F64007E70D2 /* CustomTabbar.swift in Sources */,
+				81FB15BE2C953400007E70D2 /* +View.swift in Sources */,
 				81FB15852C944D64007E70D2 /* Home.swift in Sources */,
+				81FB15C32C953A96007E70D2 /* +Realm.swift in Sources */,
+				81FB15BB2C95319F007E70D2 /* SubjectSelection.swift in Sources */,
+				81FB15C62C9540DE007E70D2 /* SubjectItem.swift in Sources */,
 				81FB15832C944D64007E70D2 /* swiftui_releaseproject_playgroundApp.swift in Sources */,
 				81FB15B22C945770007E70D2 /* SmartList.swift in Sources */,
+				81FB15C82C957CB1007E70D2 /* TestSubjectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

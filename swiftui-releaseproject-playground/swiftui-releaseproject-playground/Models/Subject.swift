@@ -13,10 +13,13 @@ final class Subject: Object, ObjectKeyIdentifiable {
    var _id: ObjectId
    
    @Persisted
-   var content: String
+   var title: String
    
    @Persisted
    var thinks: List<Think>
+   
+   @Persisted
+   var isSystemSubject: Bool = false
    
    @Persisted
    var createdAt: Date = .init()
@@ -25,10 +28,14 @@ final class Subject: Object, ObjectKeyIdentifiable {
    var updatedAt: Date = .init()
    
    convenience init(
-      content: String
+      title: String
    ) {
       self.init()
       
-      self.content = content
+      self.title = title
+   }
+   
+   var bySubjectItem: SubjectItem {
+      return .init(id: _id.stringValue, subject: title, isSelected: false)
    }
 }

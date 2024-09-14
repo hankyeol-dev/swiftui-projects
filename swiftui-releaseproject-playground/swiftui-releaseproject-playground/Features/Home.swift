@@ -15,42 +15,17 @@ struct Home: View {
       NavigationView {
          VStack {
             ZStack {
-               
-//               if selectedTabIndex == 2 {
-//                  SubjectSelectionView()
-//               }
+
             }
             
             Spacer()
-            NavigationLink {
-               if selectedTabIndex == 2 {
-                  SubjectSelectionView()
-               }
-            } label: {
-               CustomTabbar(selectedTabIndex: $selectedTabIndex, isPresendSubjectView: $presentSubjectView)
-            }
+            
+            CustomTabbar(selectedTabIndex: $selectedTabIndex, isPresendSubjectView: $presentSubjectView)
          }
       }
    }
 }
 
-struct SubjectSelectionView: View {
-   @Environment(\.dismiss) private var dismiss
-   
-   var body: some View {
-      VStack {
-         CustomNavigationBar(action: dismissView, title: "사유 주제 선택", icon: "chevron.left")
-         
-         ScrollView {
-            VStack {
-               Text("주제를 선택해보세요.")
-            }
-         }
-      }
-   }
-   
-   private func dismissView() { dismiss() }
-}
 
 #Preview {
    Home()

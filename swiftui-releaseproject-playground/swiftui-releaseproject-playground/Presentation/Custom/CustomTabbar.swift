@@ -54,7 +54,7 @@ struct CustomTabbar: View {
                      .frame(width: 36, height: 36)
                }
                .fullScreenCover(isPresented: $isPresendSubjectView) {
-                  SubjectSelectionView()
+                  SubjectSelection()
                }
             } else {
                Button {

@@ -35,7 +35,7 @@ struct CustomNavigationBar: View {
          Spacer()
          
          Text(title)
-            .byCustomFont(.satoshiMedium, size: 20.0)
+            .byCustomFont(.satoshiMedium, size: 16.0)
             .foregroundStyle(.baseBlack)
             .offset(x: -8)
          
