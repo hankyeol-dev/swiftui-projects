@@ -1,6 +1,15 @@
 {
-  "originHash" : "182db11c87d1734fe53a6366b674339f70901a93290bd85def29b63e25e34c43",
+  "originHash" : "5c4171d692da101c847ca1014aee27b0c0c8775f996ab3752a2832333998ec71",
   "pins" : [
+    {
+      "identity" : "popupview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Mijick/PopupView.git",
+      "state" : {
+        "revision" : "60ebc93bbcf06d78b0123389e641c3a451c80f65",
+        "version" : "2.7.1"
+      }
+    },
     {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",

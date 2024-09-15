@@ -16,4 +16,18 @@ struct RealmHelper {
 
 final class RealmManager: ObservableObject {
    
+   static let manager: RealmManager = .init()
+   
+   private var config: Realm.Configuration
+   private let db: Realm
+   
+   private init() {
+      config = Realm.Configuration()
+      config.schemaVersion = 1
+      
+      db = try! Realm(configuration: config)
+   }
+   
+   func getDBConfig() -> Realm.Configuration { return config }
+   
 }

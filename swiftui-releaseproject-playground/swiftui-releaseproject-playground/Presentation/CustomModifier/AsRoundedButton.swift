@@ -39,7 +39,6 @@ struct AsRoundedButton: ViewModifier {
          .fill(background)
          .frame(maxWidth: .infinity)
          .frame(height: height)
-         .padding()
          .overlay {
             Text(title)
                .byCustomFont(font, size: fontSize)

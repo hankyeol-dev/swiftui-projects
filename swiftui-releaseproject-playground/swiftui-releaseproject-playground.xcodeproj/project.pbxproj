@@ -34,6 +34,10 @@
 		81FB15C62C9540DE007E70D2 /* SubjectItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C52C9540DE007E70D2 /* SubjectItem.swift */; };
 		81FB15C82C957CB1007E70D2 /* TestSubjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C72C957CB1007E70D2 /* TestSubjectView.swift */; };
 		81FB15CA2C957D05007E70D2 /* +Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15C92C957D05007E70D2 /* +Style.swift */; };
+		81FB15CC2C95D270007E70D2 /* CustomAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15CB2C95D270007E70D2 /* CustomAlert.swift */; };
+		81FB15CF2C96668F007E70D2 /* MijickPopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 81FB15CE2C96668F007E70D2 /* MijickPopupView */; };
+		81FB15D12C966A98007E70D2 /* +Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D02C966A98007E70D2 /* +Spacer.swift */; };
+		81FB15D32C9676F6007E70D2 /* CreateSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D22C9676F6007E70D2 /* CreateSub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +69,9 @@
 		81FB15C52C9540DE007E70D2 /* SubjectItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubjectItem.swift; sourceTree = "<group>"; };
 		81FB15C72C957CB1007E70D2 /* TestSubjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSubjectView.swift; sourceTree = "<group>"; };
 		81FB15C92C957D05007E70D2 /* +Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Style.swift"; sourceTree = "<group>"; };
+		81FB15CB2C95D270007E70D2 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
+		81FB15D02C966A98007E70D2 /* +Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Spacer.swift"; sourceTree = "<group>"; };
+		81FB15D22C9676F6007E70D2 /* CreateSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FB15AB2C94570E007E70D2 /* RealmSwift in Frameworks */,
+				81FB15CF2C96668F007E70D2 /* MijickPopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,6 +157,7 @@
 				81FB15A32C945121007E70D2 /* +Font.swift */,
 				81FB15BD2C953400007E70D2 /* +View.swift */,
 				81FB15C92C957D05007E70D2 /* +Style.swift */,
+				81FB15D02C966A98007E70D2 /* +Spacer.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -176,6 +185,7 @@
 			children = (
 				81FB15B52C951F64007E70D2 /* CustomTabbar.swift */,
 				81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */,
+				81FB15CB2C95D270007E70D2 /* CustomAlert.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -196,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				81FB15BA2C95319F007E70D2 /* SubjectSelection.swift */,
+				81FB15D22C9676F6007E70D2 /* CreateSub.swift */,
 			);
 			path = Form;
 			sourceTree = "<group>";
@@ -243,6 +254,7 @@
 			name = "swiftui-releaseproject-playground";
 			packageProductDependencies = (
 				81FB15AA2C94570E007E70D2 /* RealmSwift */,
+				81FB15CE2C96668F007E70D2 /* MijickPopupView */,
 			);
 			productName = "swiftui-releaseproject-playground";
 			productReference = 81FB157F2C944D64007E70D2 /* swiftui-releaseproject-playground.app */;
@@ -274,6 +286,7 @@
 			mainGroup = 81FB15762C944D64007E70D2;
 			packageReferences = (
 				81FB15A92C94570E007E70D2 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				81FB15CD2C96668F007E70D2 /* XCRemoteSwiftPackageReference "PopupView" */,
 			);
 			productRefGroup = 81FB15802C944D64007E70D2 /* Products */;
 			projectDirPath = "";
@@ -311,6 +324,9 @@
 			files = (
 				81FB15B02C945760007E70D2 /* Sub.swift in Sources */,
 				81FB15C02C95341F007E70D2 /* AsRoundedButton.swift in Sources */,
+				81FB15CC2C95D270007E70D2 /* CustomAlert.swift in Sources */,
+				81FB15D32C9676F6007E70D2 /* CreateSub.swift in Sources */,
+				81FB15D12C966A98007E70D2 /* +Spacer.swift in Sources */,
 				81FB15AE2C945745007E70D2 /* Think.swift in Sources */,
 				81FB15CA2C957D05007E70D2 /* +Style.swift in Sources */,
 				81FB15B42C945784007E70D2 /* Subject.swift in Sources */,
@@ -552,6 +568,14 @@
 				version = 20.0.0;
 			};
 		};
+		81FB15CD2C96668F007E70D2 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -559,6 +583,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 81FB15A92C94570E007E70D2 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		81FB15CE2C96668F007E70D2 /* MijickPopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81FB15CD2C96668F007E70D2 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = MijickPopupView;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

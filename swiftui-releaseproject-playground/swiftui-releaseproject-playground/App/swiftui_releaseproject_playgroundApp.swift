@@ -8,20 +8,19 @@
 import SwiftUI
 
 import RealmSwift
+import MijickPopupView
 
 @main
 struct swiftui_releaseproject_playgroundApp: App {
    
+   private let db = RealmManager.manager
+   
    var body: some Scene {
       WindowGroup {
          Home()
-            .task {
-               setRealmSchema()
-            }
+            .implementPopupView()
+            .environmentObject(db)
+            .environment(\.realmConfiguration, db.getDBConfig())
       }
-   }
-   
-   private func setRealmSchema() {
-      Realm.Configuration.defaultConfiguration = Realm.Configuration(schemaVersion: 1)
    }
 }
