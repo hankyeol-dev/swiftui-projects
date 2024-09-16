@@ -10,11 +10,32 @@ import RealmSwift
 
 final class Think: Object, ObjectKeyIdentifiable {
    
-   enum ThinkingType: Int {
+   enum ThinkingType: Int, CaseIterable {
       case stay
       case walk
       case run
-      case none
+      
+      var byIcons: ImageResource {
+         switch self {
+         case .stay:
+               .sit
+         case .walk:
+               .walk
+         case .run:
+               .run
+         }
+      }
+      
+      var byKoreanName: String {
+         switch self {
+         case .stay:
+            "앉아서"
+         case .walk:
+            "걸으면서"
+         case .run:
+            "달리면서"
+         }
+      }
    }
    
    @Persisted(primaryKey: true)
@@ -22,7 +43,7 @@ final class Think: Object, ObjectKeyIdentifiable {
    
    @Persisted(indexed: true)
    var date: Date
-
+   
    @Persisted(originProperty: "thinks")
    var subject: LinkingObjects<Subject>
    
@@ -56,7 +77,7 @@ final class Think: Object, ObjectKeyIdentifiable {
    
    var thinkTypeConverter: ThinkingType {
       get {
-         guard let thinkingType = ThinkingType(rawValue: thinkType) else { return .none }
+         guard let thinkingType = ThinkingType(rawValue: thinkType) else { return .stay }
          return thinkingType
       }
       

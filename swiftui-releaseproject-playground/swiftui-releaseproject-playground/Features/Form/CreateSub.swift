@@ -15,6 +15,10 @@ struct CreateSub: View {
    
    private let subject: String
    @State private var subViewItems: [SubViewItem] = []
+   @State private var thinkTypes: [SegmentedItem] = Think.ThinkingType.allCases.map {
+      .init(iamge: $0.byIcons, index: $0.rawValue, descript: $0.byKoreanName)
+   }
+   @State private var thinkTypeIndex: Int = 1
    
    @ObservedResults(Subject.self)
    private var subjects
@@ -28,7 +32,7 @@ struct CreateSub: View {
    var body: some View {
       NavigationView {
          VStack {
-            CustomNavigationBar(action: dismissView, title: "사유하기", icon: "chevron.left")
+            CustomNavigationBar(action: dismissView, title: "사유할 내용 정리", icon: "chevron.left")
             ScrollView {
                GroupBox {
                   asRoundedButton(
@@ -45,27 +49,25 @@ struct CreateSub: View {
                .groupBoxStyle(.customGroupBox(
                   labelFont: .kjcRegular,
                   labelColor: .baseBlack.opacity(0.8),
-                  hSpacing: 8.0,
+                  hSpacing: 16.0,
                   vSpacing: 12.0,
                   radius: 16.0))
                
                GroupBox {
-                  if subViewItems.isEmpty {
-                     Button {
-                        subViewItems.append(.init(title: "", content: ""))
-                     } label: {
-                        asRoundedButton(title: "함께 사유할 내용 추가하기",
-                                        background: .grayMd,
-                                        foreground: .baseBlack,
-                                        fontSize: 14,
-                                        font: .kjcRegular)
-                     }
-                  } else {
-                     ForEach($subViewItems, id: \.id) { item in
-                        CreateSubFormView(title: item.title,
-                                          content: item.content,
-                                          isChecked: item.isSelected)
-                     }
+                  ForEach($subViewItems, id: \.id) { item in
+                     CreateSubFormView(title: item.title,
+                                       content: item.content,
+                                       isChecked: item.isSelected)
+                  }
+                  
+                  Button {
+                     subViewItems.append(.init(title: "", content: ""))
+                  } label: {
+                     asRoundedButton(title: "함께 사유할 내용 추가하기",
+                                     background: .grayMd,
+                                     foreground: .baseBlack,
+                                     fontSize: 14,
+                                     font: .kjcRegular)
                   }
                } label: {
                   Text("사유 할 때 함께 고민할 거리가 있나요?")
@@ -75,12 +77,49 @@ struct CreateSub: View {
                   labelColor: .baseBlack.opacity(0.8),
                   hSpacing: 16.0,
                   vSpacing: 12.0,
-                  radius: 16.0)
-               )
+                  radius: 16.0))
+               
+               GroupBox {
+                  LazyVGrid(columns: Array(repeating: GridItem(.flexible(minimum: 90, maximum: 120)), count: 3)) {
+                     ForEach(thinkTypes, id: \.id) { type in
+                        RoundedRectangle(cornerRadius: 8.0)
+                           .fill(thinkTypeIndex == type.index ? .primaryBlue : .grayMd)
+                           .frame(minHeight: 40, maxHeight: 50)
+                           .frame(maxWidth: .infinity)
+                           .overlay {
+                              HStack {
+                                 Image(type.iamge)
+                                    .resizable()
+                                    .frame(width: 12.0, height: 12.0)
+                                 Text(type.descript)
+                                    .byCustomFont(.kjcRegular, size: 14.0)
+                                    .foregroundStyle(thinkTypeIndex == type.index ? .white : .baseBlack.opacity(0.6))
+                              }
+                           }
+                           .onTapGesture {
+                              thinkTypeIndex = type.index
+                           }
+                     }
+                  }
+               } label: {
+                  Text("사유 방식을 선택해주세요.")
+               }
+               .groupBoxStyle(.customGroupBox(
+                  labelFont: .kjcRegular,
+                  labelColor: .baseBlack.opacity(0.8),
+                  hSpacing: 16.0,
+                  vSpacing: 12.0,
+                  radius: 16.0))
+               
+               NavigationLink {
+                  
+               } label: {
+                  asRoundedButton(title: "사유하기", background: .primaryBlue, foreground: .white)
+               }
             }
-            .navigationBarBackButtonHidden()
             .padding(.horizontal, 16.0)
          }
+         .navigationBarBackButtonHidden()
          .task {
             if let template = isSystemTemplate(subject) {
                subViewItems = template.byKoreanSubViewItems
@@ -116,9 +155,11 @@ struct CreateSubFormView: View {
             RoundedRectangle(cornerRadius: 3.0)
                .stroke(lineWidth: 2.0)
                .foregroundStyle(.grayMd)
-               .frame(width: 24, height: 24.0)
+               .frame(width: 24.0, height: 24.0)
                .overlay {
                   Image(isChecked ? .checked : .unChecked)
+                     .resizable()
+                     .frame(width: 20.0, height: 20.0)
                }
          }
          

@@ -38,7 +38,6 @@ struct SubjectSelection: View {
                   VStack(alignment: .leading) {
                      TextField("주제 입력", text: $tempText)
                         .tint(.baseBlack)
-                        .background(.blue)
                         .font(.custom(Text.CustomFont.kjcRegular.rawValue, size: 16))
                         .padding(.bottom, 12.0)
                         .disabled(selectedItem != nil)
@@ -78,6 +77,7 @@ struct SubjectSelection: View {
                }
             }
          }
+         .navigationBarBackButtonHidden()
          .padding()
          .alert("이미 생성된 주제에요 ㅠ", isPresented: $isPresentAlert) {
             Button("확인", role: .cancel) {

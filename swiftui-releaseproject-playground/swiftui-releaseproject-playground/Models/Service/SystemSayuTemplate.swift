@@ -28,7 +28,7 @@ enum SystemSayuTemplate: CaseIterable {
       case .book:
          "어 나도 그 책 읽어봤어"
       case .weather:
-         "날씨에 대해서"
+         "오늘의 날씨"
       }
    }
    

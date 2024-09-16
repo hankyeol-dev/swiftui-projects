@@ -41,6 +41,7 @@
 		81FB15D62C97C3CE007E70D2 /* SystemSayuTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D52C97C3CE007E70D2 /* SystemSayuTemplate.swift */; };
 		81FB15D82C97D28A007E70D2 /* SubViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D72C97D28A007E70D2 /* SubViewItem.swift */; };
 		81FB15DA2C97F4D9007E70D2 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */; };
+		81FB15DC2C98116B007E70D2 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15DB2C98116B007E70D2 /* CustomSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		81FB15D52C97C3CE007E70D2 /* SystemSayuTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSayuTemplate.swift; sourceTree = "<group>"; };
 		81FB15D72C97D28A007E70D2 /* SubViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewItem.swift; sourceTree = "<group>"; };
 		81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		81FB15DB2C98116B007E70D2 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 				81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */,
 				81FB15CB2C95D270007E70D2 /* CustomAlert.swift */,
 				81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */,
+				81FB15DB2C98116B007E70D2 /* CustomSegmentedControl.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 				81FB15D12C966A98007E70D2 /* +Spacer.swift in Sources */,
 				81FB15AE2C945745007E70D2 /* Think.swift in Sources */,
 				81FB15CA2C957D05007E70D2 /* +Style.swift in Sources */,
+				81FB15DC2C98116B007E70D2 /* CustomSegmentedControl.swift in Sources */,
 				81FB15B42C945784007E70D2 /* Subject.swift in Sources */,
 				81FB15B82C952FDF007E70D2 /* CustomNavigationBar.swift in Sources */,
 				81FB15A42C945121007E70D2 /* +Font.swift in Sources */,
