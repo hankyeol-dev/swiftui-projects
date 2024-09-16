@@ -110,6 +110,15 @@ struct CreateSub: View {
                   hSpacing: 16.0,
                   vSpacing: 12.0,
                   radius: 16.0))
+
+               GroupBox {
+                  HStack {
+                     
+                  }
+               } label: {
+                  Text("사유할 시간을 정해주세요.")
+               }
+               
                
                NavigationLink {
                   

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Home: View {
+   @StateObject private var realmManager: RealmManager = .manager
    @State private var selectedTabIndex: Int = 1
    @State private var presentSubjectView: Bool = false
    
@@ -15,7 +16,10 @@ struct Home: View {
       NavigationView {
          VStack {
             ZStack {
-
+               if selectedTabIndex == 1 {
+                  ButtonList()
+                     .environmentObject(realmManager)
+               }
             }
             
             Spacer()

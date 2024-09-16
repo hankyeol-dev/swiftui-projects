@@ -42,6 +42,8 @@
 		81FB15D82C97D28A007E70D2 /* SubViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D72C97D28A007E70D2 /* SubViewItem.swift */; };
 		81FB15DA2C97F4D9007E70D2 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */; };
 		81FB15DC2C98116B007E70D2 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15DB2C98116B007E70D2 /* CustomSegmentedControl.swift */; };
+		81FB15DE2C98286D007E70D2 /* ButtonList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15DD2C98286C007E70D2 /* ButtonList.swift */; };
+		81FB15E02C982EED007E70D2 /* ThinkPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15DF2C982EED007E70D2 /* ThinkPoint.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		81FB15D72C97D28A007E70D2 /* SubViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewItem.swift; sourceTree = "<group>"; };
 		81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 		81FB15DB2C98116B007E70D2 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
+		81FB15DD2C98286C007E70D2 /* ButtonList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonList.swift; sourceTree = "<group>"; };
+		81FB15DF2C982EED007E70D2 /* ThinkPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkPoint.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,7 @@
 			children = (
 				81FB15B92C953193007E70D2 /* Form */,
 				81FB15842C944D64007E70D2 /* Home.swift */,
+				81FB15DD2C98286C007E70D2 /* ButtonList.swift */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				81FB15AD2C945745007E70D2 /* Think.swift */,
 				81FB15AF2C945760007E70D2 /* Sub.swift */,
 				81FB15B12C945770007E70D2 /* SmartList.swift */,
+				81FB15DF2C982EED007E70D2 /* ThinkPoint.swift */,
 				81FB15B32C945784007E70D2 /* Subject.swift */,
 			);
 			path = Models;
@@ -345,6 +351,7 @@
 				81FB15B02C945760007E70D2 /* Sub.swift in Sources */,
 				81FB15C02C95341F007E70D2 /* AsRoundedButton.swift in Sources */,
 				81FB15D62C97C3CE007E70D2 /* SystemSayuTemplate.swift in Sources */,
+				81FB15DE2C98286D007E70D2 /* ButtonList.swift in Sources */,
 				81FB15CC2C95D270007E70D2 /* CustomAlert.swift in Sources */,
 				81FB15D82C97D28A007E70D2 /* SubViewItem.swift in Sources */,
 				81FB15D32C9676F6007E70D2 /* CreateSub.swift in Sources */,
@@ -362,6 +369,7 @@
 				81FB15DA2C97F4D9007E70D2 /* CustomTextView.swift in Sources */,
 				81FB15BB2C95319F007E70D2 /* SubjectSelection.swift in Sources */,
 				81FB15C62C9540DE007E70D2 /* SubjectItem.swift in Sources */,
+				81FB15E02C982EED007E70D2 /* ThinkPoint.swift in Sources */,
 				81FB15832C944D64007E70D2 /* swiftui_releaseproject_playgroundApp.swift in Sources */,
 				81FB15B22C945770007E70D2 /* SmartList.swift in Sources */,
 				81FB15C82C957CB1007E70D2 /* TestSubjectView.swift in Sources */,
