@@ -23,11 +23,16 @@ final class RealmManager: ObservableObject {
    
    private init() {
       config = Realm.Configuration()
-      config.schemaVersion = 1
+      config.schemaVersion = 4
       
       db = try! Realm(configuration: config)
    }
    
    func getDBConfig() -> Realm.Configuration { return config }
    
+   func getDBURL()  {
+      if let url = config.fileURL {
+         print(url)
+      }
+   }
 }

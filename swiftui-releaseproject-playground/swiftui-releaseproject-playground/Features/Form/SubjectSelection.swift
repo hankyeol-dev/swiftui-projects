@@ -31,13 +31,14 @@ struct SubjectSelection: View {
                } label: {
                   Text("이런 내용으로 사유해보세요.")
                }
-               .groupBoxStyle(.customGroupBox(hSpacing: 16.0, vSpacing: 12.0))
+               .groupBoxStyle(.customGroupBox(hSpacing: 12.0, vSpacing: 12.0))
                .padding(.bottom, 16.0)
                
                GroupBox {
                   VStack(alignment: .leading) {
                      TextField("주제 입력", text: $tempText)
                         .tint(.baseBlack)
+                        .background(.blue)
                         .font(.custom(Text.CustomFont.kjcRegular.rawValue, size: 16))
                         .padding(.bottom, 12.0)
                         .disabled(selectedItem != nil)
@@ -63,13 +64,14 @@ struct SubjectSelection: View {
                } label: {
                   Text("사유하고 싶은 주제를 직접 만드셔도 되어요.")
                }
-               .groupBoxStyle(.customGroupBox(hSpacing: 16.0, vSpacing: 12.0))
+               .groupBoxStyle(.customGroupBox(hSpacing: 12.0, vSpacing: 12.0))
                .padding(.bottom, 16.0)
                
                if selectedItem != nil || !tempText.isEmpty {
                   NavigationLink {
                      CreateSub(subject: mapSubject())
                         .navigationBarBackButtonHidden()
+                        .environmentObject(RealmManager.manager)
                   } label: {
                      asRoundedButton(title: "사유 내용 작성하러 가기")
                   }

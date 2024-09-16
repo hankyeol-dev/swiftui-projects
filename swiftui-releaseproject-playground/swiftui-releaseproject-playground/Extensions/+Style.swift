@@ -33,12 +33,14 @@ struct CustomGroupBoxStyle: GroupBoxStyle {
          configuration.label
             .font(.custom(labelFont.rawValue, size: 15))
             .foregroundStyle(labelColor)
+            .padding(.top, vSpacing)
          
          configuration.content
+            .padding(.bottom, vSpacing)
       }
       .padding(.horizontal, hSpacing)
-      .padding(.vertical, vSpacing)
       .background(.regularMaterial, in: RoundedRectangle(cornerRadius: radius))
+      .frame(maxWidth: .infinity)
    }
 }
 

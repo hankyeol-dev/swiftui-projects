@@ -22,9 +22,9 @@ final class Think: Object, ObjectKeyIdentifiable {
    
    @Persisted(indexed: true)
    var date: Date
-   
-   @Persisted
-   var subject: Subject?
+
+   @Persisted(originProperty: "thinks")
+   var subject: LinkingObjects<Subject>
    
    @Persisted
    var subs: List<Sub>

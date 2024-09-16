@@ -21,6 +21,9 @@ struct swiftui_releaseproject_playgroundApp: App {
             .implementPopupView()
             .environmentObject(db)
             .environment(\.realmConfiguration, db.getDBConfig())
+            .task {
+               db.getDBURL()
+            }
       }
    }
 }

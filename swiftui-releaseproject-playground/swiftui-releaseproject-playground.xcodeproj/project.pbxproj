@@ -38,6 +38,9 @@
 		81FB15CF2C96668F007E70D2 /* MijickPopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 81FB15CE2C96668F007E70D2 /* MijickPopupView */; };
 		81FB15D12C966A98007E70D2 /* +Spacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D02C966A98007E70D2 /* +Spacer.swift */; };
 		81FB15D32C9676F6007E70D2 /* CreateSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D22C9676F6007E70D2 /* CreateSub.swift */; };
+		81FB15D62C97C3CE007E70D2 /* SystemSayuTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D52C97C3CE007E70D2 /* SystemSayuTemplate.swift */; };
+		81FB15D82C97D28A007E70D2 /* SubViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D72C97D28A007E70D2 /* SubViewItem.swift */; };
+		81FB15DA2C97F4D9007E70D2 /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		81FB15CB2C95D270007E70D2 /* CustomAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlert.swift; sourceTree = "<group>"; };
 		81FB15D02C966A98007E70D2 /* +Spacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "+Spacer.swift"; sourceTree = "<group>"; };
 		81FB15D22C9676F6007E70D2 /* CreateSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateSub.swift; sourceTree = "<group>"; };
+		81FB15D52C97C3CE007E70D2 /* SystemSayuTemplate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemSayuTemplate.swift; sourceTree = "<group>"; };
+		81FB15D72C97D28A007E70D2 /* SubViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubViewItem.swift; sourceTree = "<group>"; };
+		81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +192,7 @@
 				81FB15B52C951F64007E70D2 /* CustomTabbar.swift */,
 				81FB15B72C952FDF007E70D2 /* CustomNavigationBar.swift */,
 				81FB15CB2C95D270007E70D2 /* CustomAlert.swift */,
+				81FB15D92C97F4D9007E70D2 /* CustomTextView.swift */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -193,6 +200,7 @@
 		81FB15AC2C945737007E70D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				81FB15D42C97C3BB007E70D2 /* Service */,
 				81FB15C42C9540D1007E70D2 /* View */,
 				81FB15AD2C945745007E70D2 /* Think.swift */,
 				81FB15AF2C945760007E70D2 /* Sub.swift */,
@@ -232,8 +240,17 @@
 			isa = PBXGroup;
 			children = (
 				81FB15C52C9540DE007E70D2 /* SubjectItem.swift */,
+				81FB15D72C97D28A007E70D2 /* SubViewItem.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		81FB15D42C97C3BB007E70D2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				81FB15D52C97C3CE007E70D2 /* SystemSayuTemplate.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,7 +341,9 @@
 			files = (
 				81FB15B02C945760007E70D2 /* Sub.swift in Sources */,
 				81FB15C02C95341F007E70D2 /* AsRoundedButton.swift in Sources */,
+				81FB15D62C97C3CE007E70D2 /* SystemSayuTemplate.swift in Sources */,
 				81FB15CC2C95D270007E70D2 /* CustomAlert.swift in Sources */,
+				81FB15D82C97D28A007E70D2 /* SubViewItem.swift in Sources */,
 				81FB15D32C9676F6007E70D2 /* CreateSub.swift in Sources */,
 				81FB15D12C966A98007E70D2 /* +Spacer.swift in Sources */,
 				81FB15AE2C945745007E70D2 /* Think.swift in Sources */,
@@ -336,6 +355,7 @@
 				81FB15BE2C953400007E70D2 /* +View.swift in Sources */,
 				81FB15852C944D64007E70D2 /* Home.swift in Sources */,
 				81FB15C32C953A96007E70D2 /* +Realm.swift in Sources */,
+				81FB15DA2C97F4D9007E70D2 /* CustomTextView.swift in Sources */,
 				81FB15BB2C95319F007E70D2 /* SubjectSelection.swift in Sources */,
 				81FB15C62C9540DE007E70D2 /* SubjectItem.swift in Sources */,
 				81FB15832C944D64007E70D2 /* swiftui_releaseproject_playgroundApp.swift in Sources */,
